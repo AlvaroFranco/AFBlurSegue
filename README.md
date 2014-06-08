@@ -9,7 +9,7 @@ AFBlurSegue is a UIStoryboardSegue custom implementation that will blur the back
 
 If you're using CocoaPods, just add this line to your Podfile:
 
-	pod 'AFBlurSegue', '~> 1.0'
+	pod 'AFBlurSegue', '~> 1.1'
 	
 If you're not, import these files to your project:
 
