@@ -29,11 +29,27 @@
     UIViewController *sourceController = self.sourceViewController;
     UIViewController *destinationController = self.destinationViewController;
     
-    UIGraphicsBeginImageContextWithOptions(sourceController.view.bounds.size, YES, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [sourceController.view.layer renderInContext:context];
-    UIImage *background = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    UIImage *background = [UIImage new];
+    
+    if ([sourceController isKindOfClass:[UITableViewController class]]) {
+        
+        UIView *viewToRender = [(UITableViewController *)sourceController tableView];
+        CGPoint contentOffset = [[(UITableViewController *)sourceController tableView]contentOffset];
+        
+        UIGraphicsBeginImageContext(viewToRender.bounds.size);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextTranslateCTM(context, 0, -contentOffset.y);
+        [viewToRender.layer renderInContext:context];
+        background = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    } else {
+        
+        UIGraphicsBeginImageContextWithOptions(sourceController.view.bounds.size, YES, 0);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [sourceController.view.layer renderInContext:context];
+        background = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
     
     switch ([[UIApplication sharedApplication]statusBarOrientation]) {
         case UIInterfaceOrientationPortrait:
@@ -43,7 +59,7 @@
         case UIInterfaceOrientationPortraitUpsideDown:
             background = [UIImage imageWithCGImage:background.CGImage scale:1 orientation:UIImageOrientationDown];
             break;
-
+            
         case UIInterfaceOrientationLandscapeLeft:
             background = [UIImage imageWithCGImage:background.CGImage scale:1 orientation:UIImageOrientationLeft];
             break;
@@ -51,7 +67,7 @@
         case UIInterfaceOrientationLandscapeRight:
             background = [UIImage imageWithCGImage:background.CGImage scale:1 orientation:UIImageOrientationRight];
             break;
-
+            
         default:
             break;
     }
@@ -65,10 +81,16 @@
     } else {
         blurredBackground.frame = CGRectMake(0, 0, backgroundRect.size.width, backgroundRect.size.height);
     }
-
+    
+    
     destinationController.view.backgroundColor = [UIColor clearColor];
-    [destinationController.view addSubview:blurredBackground];
-    [destinationController.view sendSubviewToBack:blurredBackground];
+    
+    if ([destinationController isKindOfClass:[UITableViewController class]]) {
+        [[(UITableViewController *)destinationController tableView]setBackgroundView:blurredBackground];
+    } else {
+        [destinationController.view addSubview:blurredBackground];
+        [destinationController.view sendSubviewToBack:blurredBackground];
+    }
     
     [sourceController presentViewController:destinationController animated:YES completion:nil];
     
