@@ -28,9 +28,16 @@
     
     UIViewController *sourceController = self.sourceViewController;
     UIViewController *destinationController = self.destinationViewController;
-    
+    UIViewController *realDestinationViewController = nil;
+	
     UIImage *background = [UIImage new];
     
+	if ([destinationController isKindOfClass:[UINavigationController class]]) {
+		UINavigationController *destnavigation = (id)destinationController;
+		
+		realDestinationViewController = [destnavigation.viewControllers firstObject];
+	}
+	
     if ([sourceController isKindOfClass:[UITableViewController class]]) {
         
         UIView *viewToRender = [(UITableViewController *)sourceController tableView];
@@ -82,16 +89,29 @@
         blurredBackground.frame = CGRectMake(0, 0, backgroundRect.size.width, backgroundRect.size.height);
     }
     
-    
-    destinationController.view.backgroundColor = [UIColor clearColor];
-    
-    if ([destinationController isKindOfClass:[UITableViewController class]]) {
-        [[(UITableViewController *)destinationController tableView]setBackgroundView:blurredBackground];
-    } else {
-        [destinationController.view addSubview:blurredBackground];
-        [destinationController.view sendSubviewToBack:blurredBackground];
+	if (realDestinationViewController != nil) {
+		realDestinationViewController.view.backgroundColor = [UIColor clearColor];
+		//realDestinationViewController.navigationController.navigationBar.tintColor = _tintColor;
+		
+		if ([realDestinationViewController isKindOfClass:[UITableViewController class]]) {
+			[[(UITableViewController *)realDestinationViewController tableView]setBackgroundView:blurredBackground];
+		} else {
+			[realDestinationViewController.view addSubview:blurredBackground];
+			[realDestinationViewController.view sendSubviewToBack:blurredBackground];
+		}
+		
+	} else {
+		
+		destinationController.view.backgroundColor = [UIColor clearColor];
+		
+		if ([destinationController isKindOfClass:[UITableViewController class]]) {
+			[[(UITableViewController *)destinationController tableView]setBackgroundView:blurredBackground];
+		} else {
+			[destinationController.view addSubview:blurredBackground];
+			[destinationController.view sendSubviewToBack:blurredBackground];
+		}
     }
-    
+	
     [sourceController presentViewController:destinationController animated:YES completion:nil];
     
     [destinationController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
