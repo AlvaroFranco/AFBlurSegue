@@ -51,7 +51,7 @@ For customizing it, let's use ```-prepareForSegue:sender:```
 		blurSegue.saturationDeltaFactor = 0.5;
 	}
 	
-**I highly recommend ussing *UIModalTransitionStyleCrossDissolve* or *UIModalTransitionCoverVertical* for better results. These animations looks really great with the blur effect.**
+**I highly recommend using *UIModalTransitionStyleCrossDissolve* or *UIModalTransitionCoverVertical* for better results. These animations looks really great with the blur effect.**
 	
 	
 ##Blur method
