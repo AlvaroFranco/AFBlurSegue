@@ -62,10 +62,6 @@
             destination.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             break;
             
-        case 3:
-            destination.modalTransitionStyle = UIModalTransitionStylePartialCurl;
-            break;
-            
         default:
             break;
     }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C260B5E1-1731-4067-A28D-58541FAB27BB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AFBlurSegue-Demo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>19497EBE85140CE427B495558FDFFCE64A1D9686</key>
+		<string>github.com:AlvaroFranco/AFBlurSegue.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Demo/AFBlurSegue-Demo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>19497EBE85140CE427B495558FDFFCE64A1D9686</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:AlvaroFranco/AFBlurSegue.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>19497EBE85140CE427B495558FDFFCE64A1D9686</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>19497EBE85140CE427B495558FDFFCE64A1D9686</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AFBlurSegue</string>
+		</dict>
+	</array>
+</dict>
+</plist>
