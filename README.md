@@ -1,6 +1,8 @@
 AFBlurSegue
 ===========
 
+![alt text](https://raw.github.com/AlvaroFranco/AFBlurSegue/master/img/new.gif "New") **Now supports iOS 8 *real time* blur and *rotation***
+
 AFBlurSegue is a UIStoryboardSegue custom implementation that will blur the background of your modal view controller automatically.
 
 ![alt text](https://raw.github.com/AlvaroFranco/AFBlurSegue/master/img/preview.gif "Preview")
