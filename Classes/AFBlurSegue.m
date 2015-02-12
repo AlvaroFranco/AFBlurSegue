@@ -16,9 +16,10 @@
     self = [super initWithIdentifier:identifier source:source destination:destination];
     
     if (self) {
-        _blurRadius = 20;
-        _tintColor = [UIColor clearColor];
-        _saturationDeltaFactor = 0.5;
+        _blurRadius             = 20;
+        _tintColor              = [UIColor clearColor];
+        _saturationDeltaFactor  = 0.5;
+        _blurEffectStyle        = UIBlurEffectStyleDark;
     }
     
     return self;
@@ -104,7 +105,7 @@
         } completion:nil];
     } else {
         
-        UIVisualEffect *visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffect *visualEffect = [UIBlurEffect effectWithStyle:_blurEffectStyle];
         UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:visualEffect];
         
         blurView.translatesAutoresizingMaskIntoConstraints = NO;

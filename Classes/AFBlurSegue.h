@@ -13,5 +13,6 @@
 @property (nonatomic) CGFloat blurRadius UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIColor *tintColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat saturationDeltaFactor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIBlurEffectStyle blurEffectStyle UI_APPEARANCE_SELECTOR;
 
 @end
