@@ -105,8 +105,9 @@
         } completion:nil];
     } else {
         
-        UIVisualEffect *visualEffect = [UIBlurEffect effectWithStyle:_blurEffectStyle];
-        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:visualEffect];
+        UIBlurEffect *visualEffect              = [UIBlurEffect effectWithStyle:_blurEffectStyle];
+        UIVisualEffectView *blurView            = [[UIVisualEffectView alloc] initWithEffect:visualEffect];
+        blurView.contentView.backgroundColor    = _tintColor;
         
         blurView.translatesAutoresizingMaskIntoConstraints = NO;
 
