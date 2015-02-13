@@ -36,7 +36,7 @@ For presenting the view controller, call ```-performSegueWithIdentifier:sender:`
 
 	[self performSegueWithIdentifier:@"blurSegue" sender:self];
 	
-## Customization (**not available from iOS 8 or above, because native blurring is used)
+## Customization (not available from iOS 8 or above, because native blurring is used)
 
 You can customize a few things such as the blur radius, tint color, saturation delta factor and modal transition style. To do this, import the class into your class:
 
