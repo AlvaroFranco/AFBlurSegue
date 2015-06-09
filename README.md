@@ -13,8 +13,8 @@ AFBlurSegue is a UIStoryboardSegue custom implementation that will blur the back
 
 If you're using CocoaPods, just add this line to your Podfile:
 
-	pod 'AFBlurSegue', '~> 1.2'
-	
+	pod 'AFBlurSegue', '~> 1.2.1'
+
 If you're not, import these files to your project:
 
 	AFBlurSegue.h
@@ -23,7 +23,7 @@ If you're not, import these files to your project:
 	UIImage+ImageEffects.h
 
 ##Usage
-	
+
 Since it's a Storyboard Segue custom implementation, you can start using it right from Storyboard. If you have your segue already created, just change it to Custom and the set AFBlurSegue as segue class.
 
 ![alt text](https://raw.github.com/AlvaroFranco/AFBlurSegue/master/img/usage2.png "Usage")
@@ -35,7 +35,7 @@ If you have to create your segue, create a new one by holding right click from t
 For presenting the view controller, call ```-performSegueWithIdentifier:sender:```:
 
 	[self performSegueWithIdentifier:@"blurSegue" sender:self];
-	
+
 ## Customization (not available from iOS 8 or above, because native blurring is used)
 
 You can customize a few things such as the blur radius, tint color, saturation delta factor and modal transition style. To do this, import the class into your class:
@@ -45,7 +45,7 @@ You can customize a few things such as the blur radius, tint color, saturation d
 For customizing it, let's use ```-prepareForSegue:sender:```
 
 	-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-        
+
     	UIViewController *destination = segue.destinationViewController;
     	destination.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 
@@ -54,13 +54,13 @@ For customizing it, let's use ```-prepareForSegue:sender:```
     	blurSegue.tintColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.1];
 		blurSegue.saturationDeltaFactor = 0.5;
 	}
-	
+
 **I highly recommend using *UIModalTransitionStyleCrossDissolve* or *UIModalTransitionCoverVertical* for better results. These animations looks really great with the blur effect.**
-	
-	
+
+
 ##Blur method
 
-Since there's no public API already for blur effect, we have to find some workarounds. A lot of blurring classes are currently using the famous UIToolbar hack. Since UIToolbar have native blur, you can change its size and use it as a blur container. AFBlurSegue uses the UIImage+ImageEffects class provided by Apple. 
+Since there's no public API already for blur effect, we have to find some workarounds. A lot of blurring classes are currently using the famous UIToolbar hack. Since UIToolbar have native blur, you can change its size and use it as a blur container. AFBlurSegue uses the UIImage+ImageEffects class provided by Apple.
 
 ##License
 AFBlurSegue is under MIT license so feel free to use it!
