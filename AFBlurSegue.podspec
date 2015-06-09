@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "AFBlurSegue"
 
-  s.version      = "1.2"
+  s.version      = "1.2.1"
 
   s.summary      = "Custom UIStoryboardSegue implementation for blurring the background of a modal view controller."
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.screenshot   = 'https://camo.githubusercontent.com/68c4decb44114d5314d58a356f01c93a18399fc4/68747470733a2f2f7261772e6769746875622e636f6d2f416c7661726f4672616e636f2f4146426c757253656775652f6d61737465722f696d672f707265766965772e676966'
 
-  s.source       = { :git => "https://github.com/AlvaroFranco/AFBlurSegue.git", :tag => 'v1.2' }
+  s.source       = { :git => "https://github.com/AlvaroFranco/AFBlurSegue.git", :tag => 'v1.2.1' }
 
   s.source_files = 'Classes/*.{h,m}'
 
